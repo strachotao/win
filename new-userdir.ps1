@@ -1,10 +1,19 @@
 # new-userdir; version 2018-01-14; strachotao
-# vytvori adresar uzivatele a nastavi mu ACL; pokud uzivatelske jmeno neexistuje, vytvori jen uzivatele 
+# vytvori adresar uzivatele a nastavi mu ACL: SYSTEM(rwx), $username(rwx), Administrators(rwx)
+# pokud uzivatelske jmeno neexistuje, vytvori jen adresar
+#
+# parametry:
+# $username = jmeno uzivatele
+# $path = cesta, ve ktere bude adresar $username vytvoren
+#
+# priklad: 
+# .\new-userdir.ps1 -username novakj -path c:\temp
+# vytvori adresar c:\temp\novakj a nastavi mu ACL: SYSTEM(rwx), novakj(rwx), Administrators(rwx)
 #
 # pouziti:
 # .\new-userdir.ps1 -username osx -path c:\temp
 #
-# pouziti v cyklu pro vide uzivatelu najednou:
+# pouziti v cyklu pro vice uzivatelu najednou:
 # foreach ($user in ('olie', 'petr', 'martin')) {.\new-userdir.ps1 -username $user -path c:\temp}
 
 Param (
